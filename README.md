@@ -5,15 +5,17 @@ An image-based food nutrition analysis system that uses deep learning to identif
 ## Project Overview
 
 This project implements a two-stage pipeline:
+
 1. **Food Classification** — A fine-tuned CNN (EfficientNet/ResNet-50) classifies the food item in the image
 2. **Nutrition Estimation** — The predicted food category is mapped to a nutritional database to retrieve macronutrient values
 
 ## Team Members
+
 - Arsham Alishirkouhi
 - Gonul Eda Koker
 - Michael Hoshen
 
-*San José State University — CMPE 189, Spring 2026*
+_San José State University — CMPE 189, Spring 2026_
 
 ## Repository Structure
 
@@ -54,12 +56,12 @@ streamlit run app/app.py
 
 ## Model Performance (Preliminary)
 
-| Model        | Accuracy | F1-Score | MAE (calories) |
-|--------------|----------|----------|----------------|
-| ResNet-50    | TBD      | TBD      | TBD            |
-| EfficientNet | TBD      | TBD      | TBD            |
+| Model        | Accuracy | Final Train Loss |
+| ------------ | -------- | ---------------- |
+| ResNet-50    | 91.5%    | 129.83%          |
+| EfficientNet | 90.56%   | 77.48%           |
 
-*Results will be updated as experiments progress.*
+Both models achieved relatively similar accuracy after 3 epochs of training on a 10,000-image subset of Food-101. ResNet-50 achieved slightly higher accuracy (91.5%) while EfficientNet-B0 converged faster and reached a lower final loss (77.48 vs 129.83), suggesting better generalization potential with more training data. Based on these results, EfficientNet-B0 is the preferred model for our final pipeline due to its efficiency and lower loss.
 
 ## Tech Stack
 
