@@ -58,10 +58,10 @@ streamlit run app/app.py
 
 | Model        | Accuracy | Final Train Loss |
 | ------------ | -------- | ---------------- |
-| ResNet-50    | 91.5%    | 129.83%          |
-| EfficientNet | 90.56%   | 77.48%           |
+| ResNet-50    | 91.5%    | 0.415            |
+| EfficientNet | 90.56%   | 0.247            |
 
-Both models achieved relatively similar accuracy after 3 epochs of training on a 10,000-image subset of Food-101. ResNet-50 achieved slightly higher accuracy (91.5%) while EfficientNet-B0 converged faster and reached a lower final loss (77.48 vs 129.83), suggesting better generalization potential with more training data. Based on these results, EfficientNet-B0 is the preferred model for our final pipeline due to its efficiency and lower loss.
+Both models achieved relatively similar accuracy after 3 epochs of training on a 10,000-image subset of Food-101. ResNet-50 achieved slightly higher accuracy (91.5%) while EfficientNet-B0 converged faster and reached a lower average training loss (~0.25 per batch vs ~0.41 per batch), suggesting better generalization potential with more training data. Based on these results, EfficientNet-B0 is the preferred model for our final pipeline due to its efficiency and lower loss.
 
 ## Tech Stack
 
