@@ -1,0 +1,38 @@
+# Data & models (too large for GitHub)
+data/raw/
+data/processed/
+data/food-101/
+*.pth
+*.pt
+*.h5
+
+# Kaggle credentials
+kaggle.json
+.kaggle/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.env
+venv/
+.venv/
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Training outputs (generated files)
+training_curves.png
+confusion_matrix.png
+sample_images.png
+class_distribution.png
+calorie_distribution.png
+macronutrient_distribution.png
+
+# VSCode
+.vscode/
