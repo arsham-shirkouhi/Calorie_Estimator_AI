@@ -56,12 +56,35 @@ streamlit run app/app.py
 
 ## Model Performance (Preliminary)
 
-| Model        | Accuracy | Final Train Loss |
-| ------------ | -------- | ---------------- |
-| ResNet-50    | 91.5%    | 0.415            |
-| EfficientNet | 90.56%   | 0.247            |
+| Model        | Accuracy | Average loss |
+| ------------ | -------- | ------------ |
+| ResNet-50    | 91.5%    | 0.415        |
+| EfficientNet | 90.56%   | 0.247        |
 
 Both models achieved relatively similar accuracy after 3 epochs of training on a 10,000-image subset of Food-101. ResNet-50 achieved slightly higher accuracy (91.5%) while EfficientNet-B0 converged faster and reached a lower average training loss (~0.25 per batch vs ~0.41 per batch), suggesting better generalization potential with more training data. Based on these results, EfficientNet-B0 is the preferred model for our final pipeline due to its efficiency and lower loss.
+
+## Prediction Pipeline Status
+
+The inference backend now connects image classification with nutrition lookup so a single image input can return both the predicted food class and its nutritional profile per 100g.
+
+### Completed Updates
+
+- Implemented EfficientNet-B0 model construction in `src/model.py` for 101 Food-101 classes.
+- Implemented `predict_food()` in `src/predict.py` with:
+  - model weight loading from `models/best_model.pth`
+  - image preprocessing (224x224 resize + ImageNet normalization)
+  - class prediction and confidence score output
+- Implemented `get_nutrition()` in `src/predict.py` to map predicted classes to `data/nutrition_database.csv`.
+- Added CLI execution flow in `src/predict.py` to print:
+  - predicted class
+  - confidence percentage
+  - calories, protein, carbs, fat, fiber, sugar, sodium
+
+### What Happens Next
+
+- Train EfficientNet-B0 on a larger subset or full Food-101 dataset and save the best checkpoint to `models/best_model.pth`.
+- Evaluate with validation metrics beyond training accuracy (precision, recall, F1-score, confusion matrix).
+- Integrate this backend pipeline into `app/app.py` so Streamlit can perform end-to-end food nutrition estimation from uploaded images.
 
 ## Tech Stack
 
