@@ -2,6 +2,7 @@
 data/raw/
 data/processed/
 data/food-101/
+data/food-101.tar.gz
 *.pth
 *.pt
 *.h5
